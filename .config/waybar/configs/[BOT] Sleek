@@ -1,0 +1,36 @@
+// Sleek 
+
+{
+"include": "~/.config/waybar/modules",
+"layer": "top",
+"position": "top",
+"height": 14,
+"margin-left": 10,
+"margin-right": 10,
+"margin-bottom": 2,
+	
+"modules-left": [
+	"custom/swaync",
+	"clock",
+	"custom/separator#blank",
+	"custom/menu",
+],
+
+"modules-center": [
+	"hyprland/workspaces",
+	"custom/separator#blank_2",
+	"hyprland/window",
+],
+		
+"modules-right": [
+	"group/connections",
+	"group/mobo_drawer",
+	"custom/separator#blank",
+	"pulseaudio",
+	"group/laptop",
+    "power-profiles-daemon",
+	"custom/separator#blank_2",
+	"custom/power",					
+	],
+
+}
