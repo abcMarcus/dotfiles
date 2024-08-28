@@ -18,9 +18,9 @@ source $ZSH/oh-my-zsh.sh
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
 
 # Set-up icons for files/folders in terminal
-alias ls='eza --icons'
-alias ll='eza -al --icons'
-alias lt='eza -a --tree --level=1 --icons'
+# alias ls='eza --icons'
+# alias ll='eza -al --icons'
+# alias lt='eza -a --tree --level=1 --icons'
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)

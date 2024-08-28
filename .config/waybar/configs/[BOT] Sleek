@@ -1,5 +1,3 @@
-// Sleek 
-
 {
 "include": "~/.config/waybar/modules",
 "layer": "top",
@@ -10,10 +8,10 @@
 "margin-bottom": 2,
 	
 "modules-left": [
+	"custom/menu",
+	"custom/separator#blank",
 	"custom/swaync",
 	"clock",
-	"custom/separator#blank",
-	"custom/menu",
 ],
 
 "modules-center": [
@@ -29,7 +27,6 @@
 	"pulseaudio",
 	"group/laptop",
     "power-profiles-daemon",
-	"custom/separator#blank_2",
 	"custom/power",					
 	],
 
