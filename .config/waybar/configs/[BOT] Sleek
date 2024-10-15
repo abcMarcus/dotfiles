@@ -12,12 +12,12 @@
 	"custom/separator#blank",
 	"custom/swaync",
 	"clock",
+	"custom/separator#blank_2",
+	"hyprland/window",
 ],
 
 "modules-center": [
 	"hyprland/workspaces",
-	"custom/separator#blank_2",
-	"hyprland/window",
 ],
 		
 "modules-right": [
