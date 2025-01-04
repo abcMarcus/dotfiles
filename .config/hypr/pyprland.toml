@@ -3,6 +3,7 @@
 plugins = [
   "scratchpads",
   "magnify",
+  "shift_monitors",
 ]
 
 [scratchpads.term]

@@ -36,7 +36,8 @@ yad --width=$dynamic_width --height=$dynamic_height \
     --column=Description: \
     --column=Command: \
     --timeout-indicator=bottom \
-"ESC" "close this app" "" "=" "SUPER KEY (Windows Key)" "(SUPER KEY)" \
+"ESC" "close this app" ""\
+"=" "SUPER KEY (Windows Key)" "(SUPER KEY)" \
 " enter" "Terminal" "(kitty)" \
 " SHIFT enter" "DropDown Terminal" "(kitty-pyprland)" \
 " A" "Desktop Overview" "(AGS Overview)" \
@@ -46,6 +47,7 @@ yad --width=$dynamic_width --height=$dynamic_height \
 " Q" "close active window" "(not kill)" \
 " Shift Q " "kills an active window" "(kill)" \
 " Z" "Desktop Zoom" "(pyprland)" \
+" O" "Change active window monitor" "(pypr shift_monitors +1)" \
 " Alt V" "Clipboard Manager" "(cliphist)" \
 " W" "Choose wallpaper" "(Wallpaper Menu)" \
 " Shift W" "Choose wallpaper effects" "(imagemagick + swww)" \
@@ -74,5 +76,3 @@ yad --width=$dynamic_width --height=$dynamic_height \
 " ALT V" "Clipboard Manager" "cliphist" \
 " H" "Launch this app" "" \
 " E" "View or EDIT Keybinds, Settings, Monitor" "" \
-"" "" "" \
-"More tips:" "https://github.com/JaKooLit/Hyprland-Dots/wiki" ""\
