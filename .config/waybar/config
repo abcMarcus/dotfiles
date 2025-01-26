@@ -1,1 +1,29 @@
-/home/marcus/.config/waybar/configs/[BOT] Sleek
+{
+"include": "~/.config/waybar/modules",
+"layer": "top",
+"position": "top",
+"height": 14,
+"margin-bottom": 2,
+	
+"modules-left": [
+	"custom/menu",
+	"custom/swaync",
+	"clock",
+	"hyprland/window",
+],
+
+"modules-center": [
+	"hyprland/workspaces",
+],
+		
+"modules-right": [
+	"group/connections",
+	"group/mobo_drawer",
+	"custom/separator#blank",
+	"pulseaudio",
+	"group/laptop",
+    "power-profiles-daemon",
+	"custom/power",					
+	],
+
+}
