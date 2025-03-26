@@ -39,10 +39,10 @@ case "$1" in
 		get_kbd_backlight
 		;;
 	"--inc")
-		change_kbd_backlight "+30%"
+		change_kbd_backlight "+15%"
 		;;
 	"--dec")
-		change_kbd_backlight "30%-"
+		change_kbd_backlight "15%-"
 		;;
 	*)
 		get_kbd_backlight
