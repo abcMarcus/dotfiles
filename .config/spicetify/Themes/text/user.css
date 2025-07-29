@@ -14,7 +14,7 @@
     --font-weight: 300; /* 200 : 900 */
     --line-height: 1.1;
 
-    --font-size-lyrics: 14px; /* 1.5em (default) */
+    --font-size-lyrics: 24px; /* 1.5em (default) */
 
     --font-family-header: "asciid";
     --font-size-multiplier-header: 3;
@@ -684,27 +684,27 @@ form .main-topBar-searchBar:placeholder-shown {
     --lyrics-color-messaging: var(--spice-subtext) !important;
 }
 .lyrics-lyricsContent-lyric {
-    opacity: 0.3;
+    opacity: 0.8;
     display: flex;
     flex-direction: row;
 }
 .lyrics-lyricsContent-lyric.lyrics-lyricsContent-highlight {
-    opacity: 0.7;
+    opacity: 0.5;
     transition: none;
 }
 .lyrics-lyricsContent-lyric.lyrics-lyricsContent-active:not(:empty) {
-    background-color: var(--lyrics-color-background);
-    color: var(--spice-text);
+    color: #eee;
+    font-weight: bold;
     opacity: 1;
     transition: none;
 }
 .lyrics-lyricsContent-lyric:not(:empty)::before {
-    content: ">> ";
+    content: "> ";
     opacity: 0;
     white-space: break-spaces;
 }
 .lyrics-lyricsContent-lyric.lyrics-lyricsContent-active:not(:empty)::before {
-    content: ">> ";
+    content: "> ";
     opacity: 1;
     white-space: break-spaces;
 }
