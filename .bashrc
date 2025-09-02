@@ -36,6 +36,11 @@ if command -V fzf >/dev/null 2>&1; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
 fi
 
+if command -V starship >/dev/null 2>&1; then
+    export STARSHIP_CONFIG=~/dotfiles/.config/starship.toml
+    eval "$(starship init bash)"
+fi
+
 export VISUAL="vim"
 if command -V lsd >/dev/null 2>&1; then
     export VISUAL="nvim"
