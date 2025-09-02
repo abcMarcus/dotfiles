@@ -27,10 +27,14 @@ if command -V zoxide >/dev/null 2>&1; then
     alias cdf='zi'
 fi
 
+if command -V lsd >/dev/null 2>&1; then
+    alias ls='lsd'
+fi
+alias ll='ls -Al'
+
 if command -V fzf >/dev/null 2>&1; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
 fi
-
 
 export VISUAL="vim"
 if command -V lsd >/dev/null 2>&1; then
