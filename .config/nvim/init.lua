@@ -1,51 +1,37 @@
-require "core"
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/"
+vim.g.mapleader = " "
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if custom_init_path then
-    dofile(custom_init_path)
+if not vim.uv.fs_stat(lazypath) then
+	local repo = "https://github.com/folke/lazy.nvim.git"
+	vim.fn.system({ "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath })
 end
 
-require("core.utils").load_mappings()
-
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-    require("core.bootstrap").gen_chadrc_template()
-    require("core.bootstrap").lazy(lazypath)
-end
-
-vim.filetype.add {
-  extension = {
-    jinja = 'html',
-    jinja2 = 'html',
-    j2 = 'jinja',
-  },
-}
-
-dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
-require "plugins"
 
+local lazy_config = require("configs.lazy")
 
--- my vim settings
-vim.keymap.set("i", "jj","<Esc>")
-vim.keymap.set("i", "jk","<Esc>")
-vim.keymap.set("i", "kj","<Esc>")
-vim.wo.relativenumber = true
-vim.wo.number = true
-vim.opt.tabstop = 4
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
+-- load plugins
+require("lazy").setup({
+	{
+		"NvChad/NvChad",
+		lazy = false,
+		branch = "v2.5",
+		import = "nvchad.plugins",
+	},
 
+	{ import = "plugins" },
+}, lazy_config)
 
-local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = true })
-end
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
-local telescope = require('telescope')
-local telescope_builtin = require('telescope.builtin')
+require("options")
+require("autocmds")
 
-map('n', '<leader>hr', ':%!xxd<CR> :set filetype=xxd<CR>')
-map('n', '<leader>hw', ':%!xxd -r<CR> :set binary<CR> :set filetype=<CR>')
+vim.schedule(function()
+	require("mappings")
+end)
