@@ -33,7 +33,12 @@ fi
 alias ll='ls -Al'
 
 if command -V fzf >/dev/null 2>&1; then
-    source /usr/share/doc/fzf/examples/key-bindings.bash
+    if [ -f /usr/share/fzf/key-bindings.bash ]; then
+        source /usr/share/fzf/key-bindings.bash
+        source /usr/share/fzf/completion.bash
+    elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+        source /usr/share/doc/fzf/examples/key-bindings.bash
+    fi
 fi
 
 if command -V starship >/dev/null 2>&1; then
@@ -42,7 +47,8 @@ if command -V starship >/dev/null 2>&1; then
 fi
 
 export VISUAL="vim"
-if command -V lsd >/dev/null 2>&1; then
+
+if command -V nvim >/dev/null 2>&1; then
     export VISUAL="nvim"
     alias nv='nvim'
 fi
@@ -51,7 +57,10 @@ alias grep='grep --color=auto'
 
 alias git_cap='git add -u && git commit --amend --no-edit && git push -f'
 
-mc ()
-{
-  mkdir $1 && cd $1  
-}
+alias clock='peaclock'
+
+if [ -f ~/.custom_commands.sh ]; then
+    source ~/.custom_commands.sh 
+else
+    echo "Warnig: ~/.custom_commands.sh not found" >&2
+fi

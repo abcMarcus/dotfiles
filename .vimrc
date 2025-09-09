@@ -7,4 +7,5 @@ set number
 
 inoremap jk <esc>
 inoremap jj <esc>
+inoremap kk <esc>
 inoremap kj <esc>
