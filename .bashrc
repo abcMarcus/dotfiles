@@ -21,12 +21,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if command -V zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init bash)"
-    alias cd='z'
-    alias cdf='zi'
-fi
-
 if command -V lsd >/dev/null 2>&1; then
     alias ls='lsd'
 fi
@@ -45,6 +39,13 @@ if command -V starship >/dev/null 2>&1; then
     export STARSHIP_CONFIG=~/dotfiles/.config/starship.toml
     eval "$(starship init bash)"
 fi
+
+if command -V zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+    alias cd='z'
+    alias cdf='zi'
+fi
+
 
 export VISUAL="vim"
 
