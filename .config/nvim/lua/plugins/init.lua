@@ -15,10 +15,14 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua-language-server",
-				"pyright",
+				-- python
 				"ruff",
+				"black",
+				"isort",
+				-- c
 				"clangd",
 				"clang-format",
+				-- typst
 				"tinymist",
 			},
 		},
