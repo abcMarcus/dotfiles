@@ -35,3 +35,11 @@ require("autocmds")
 vim.schedule(function()
 	require("mappings")
 end)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "typst" },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.linebreak = true
+  end,
+})
