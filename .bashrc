@@ -46,6 +46,9 @@ if command -V zoxide >/dev/null 2>&1; then
     alias cdf='zi'
 fi
 
+if command -V pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init - bash)"
+fi
 
 export VISUAL="vim"
 
