@@ -23,6 +23,7 @@ fi
 
 if command -V lsd >/dev/null 2>&1; then
     alias ls='lsd'
+    alias tree='ls --tree'
 fi
 alias ll='ls -Al'
 
