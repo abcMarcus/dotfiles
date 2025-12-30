@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pdf_unlock () {
     if [ $# -ne 1 ]; then
         echo "Usage: pdf_unlock <pdf>"
@@ -7,11 +9,11 @@ pdf_unlock () {
     read -p "Password: " -s PASSWORD
     echo
 
-    qpdf --password="${PASSWORD}" --decrypt ${name}.pdf ${name}_unlocked.pdf
+    qpdf --password="${PASSWORD}" --decrypt "${name}.pdf" "${name}_unlocked.pdf"
     unset PASSWORD
 }
 
-mc ()
-{
-  mkdir $1 && cd $1  
+mc () {
+  mkdir "$1" && cd "$1"
 }
+
