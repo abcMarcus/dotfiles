@@ -8,12 +8,12 @@ wallDIR="$HOME/Pictures/wallpapers"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
 
-# swww transition config
+# awww transition config
 FPS=60
 TYPE="any"
 DURATION=2
 BEZIER=".43,1.19,1,.4"
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
+AWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 
 # Check if swaybg is running
 if pidof swaybg > /dev/null; then
@@ -45,8 +45,8 @@ menu() {
   done
 }
 
-# initiate swww if not running
-swww query || swww-daemon --format xrgb
+# initiate awww if not running
+awww query || awww-daemon --format xrgb
 
 # Choice of wallpapers
 main() {
@@ -58,7 +58,7 @@ main() {
 
   # Random choice case
   if [ "$choice" = "$RANDOM_PIC_NAME" ]; then
-    swww img -o $focused_monitor "${RANDOM_PIC}" $SWWW_PARAMS
+    awww img -o $focused_monitor "${RANDOM_PIC}" $AWWW_PARAMS
     exit 0
   fi
 
@@ -73,7 +73,7 @@ main() {
   done
 
   if [[ $pic_index -ne -1 ]]; then
-    swww img -o $focused_monitor "${PICS[$pic_index]}" $SWWW_PARAMS
+    awww img -o $focused_monitor "${PICS[$pic_index]}" $AWWW_PARAMS
   else
     echo "Image not found."
     exit 1
@@ -89,6 +89,6 @@ fi
 main
 
 sleep 0.5
-${SCRIPTSDIR}/WallustSwww.sh
+${SCRIPTSDIR}/WallustAwww.sh
 sleep 0.2
 ${SCRIPTSDIR}/Refresh.sh

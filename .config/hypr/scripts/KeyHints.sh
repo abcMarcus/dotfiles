@@ -50,8 +50,8 @@ yad --width=$dynamic_width --height=$dynamic_height \
 " O" "Change active window monitor" "(pypr shift_monitors +1)" \
 " Alt V" "Clipboard Manager" "(cliphist)" \
 " W" "Choose wallpaper" "(Wallpaper Menu)" \
-" Shift W" "Choose wallpaper effects" "(imagemagick + swww)" \
-"CTRL ALT W" "Random wallpaper" "(via swww)" \
+" Shift W" "Choose wallpaper effects" "(imagemagick + awww)" \
+"CTRL ALT W" "Random wallpaper" "(via awww)" \
 " B" "Hide/UnHide Waybar" "waybar" \
 " CTRL B" "Choose waybar styles" "(waybar styles)" \
 " ALT B" "Choose waybar layout" "(waybar layout)" \
