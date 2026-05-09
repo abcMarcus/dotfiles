@@ -22,6 +22,7 @@ return {
 				-- c
 				"clangd",
 				"clang-format",
+				"prettier",
 				-- typst
 				"tinymist",
 			},
@@ -29,8 +30,12 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
+		build = ":TSUpdate",
+		lazy = false,
+
+		config = function()
+			-- ensure parsers are installed
+			require("nvim-treesitter").install({
 				"c",
 				"cpp",
 				"css",
@@ -39,7 +44,15 @@ return {
 				"python",
 				"vim",
 				"vimdoc",
-			},
-		},
+				"yaml",
+			})
+
+			-- enable treesitter highlighting
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					pcall(vim.treesitter.start, args.buf)
+				end,
+			})
+		end,
 	},
 }

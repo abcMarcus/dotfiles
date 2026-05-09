@@ -1,11 +1,16 @@
 require("nvchad.configs.lspconfig").defaults()
 
+-- Use the new Neovim 0.11+ LSP configuration system
+-- This avoids the "require('lspconfig') framework is deprecated" warning
+
+-- Set up servers that don't need custom config
 local servers = { "html", "cssls" }
-vim.lsp.enable(servers)
+for _, lsp in ipairs(servers) do
+	vim.lsp.enable(lsp)
+end
 
-local lspconfig = require("lspconfig")
-
-lspconfig["tinymist"].setup({
+-- Tinymist (typst)
+vim.lsp.config("tinymist", {
 	settings = {
 		formatterMode = "typstyle",
 		exportPdf = "onType",
@@ -16,38 +21,44 @@ lspconfig["tinymist"].setup({
 			enable = true,
 			when = "onType",
 		},
-		-- lintenable = "enable",
 	},
 })
+vim.lsp.enable("tinymist")
 
-lspconfig.ruff.setup({
+-- Ruff (python linter/formatter)
+vim.lsp.config("ruff", {
 	init_options = {
 		settings = {
 			lineLength = 80,
-            organizeImports = true,
+			organizeImports = true,
 		},
 	},
 })
+vim.lsp.enable("ruff")
 
-lspconfig.pyright.setup({
-  settings = {
-    python = {
-      analysis = {
-        typeCheckingMode = "basic",
-        autoImportCompletions = true,
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
+-- Pyright (python LSP)
+vim.lsp.config("pyright", {
+	settings = {
+		python = {
+			analysis = {
+				typeCheckingMode = "basic",
+				autoImportCompletions = true,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
+			},
+		},
+	},
 })
+vim.lsp.enable("pyright")
 
-lspconfig.clangd.setup({
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--clang-tidy",
-    "--completion-style=detailed",
-    "--header-insertion=never",
-  },
+-- Clangd (c/c++)
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=never",
+	},
 })
+vim.lsp.enable("clangd")
